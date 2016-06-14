@@ -36,7 +36,7 @@ func GetInterfaceByIP(ip string) (*net.Interface, error) {
 }
 
 // GetIPAdress for get ip adress
-func GetIPAdress(_interface net.Interface) string {
+func GetIPAdress(_interface *net.Interface) string {
 	var ip net.IP
 	ipv4 := ""
 	addrs, _ := _interface.Addrs()

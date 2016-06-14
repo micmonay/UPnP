@@ -92,7 +92,7 @@ func (d *dialog) write(request *http.Request, addr *net.UDPAddr) {
 }
 
 // GetAllCompatibleDevice return All devices
-func (u *UPNP) GetAllCompatibleDevice(_interface net.Interface, timeout int) []*Device {
+func (u *UPNP) GetAllCompatibleDevice(_interface *net.Interface, timeout int) []*Device {
 	devices := []*Device{}
 	listsLink := u.GetLinkDeviceOnly(_interface, timeout)
 	for _, link := range listsLink {
@@ -107,7 +107,7 @@ func (u *UPNP) GetAllCompatibleDevice(_interface net.Interface, timeout int) []*
 }
 
 // GetLinkDeviceOnly For get all link description file
-func (u *UPNP) GetLinkDeviceOnly(_interface net.Interface, timeout int) []string {
+func (u *UPNP) GetLinkDeviceOnly(_interface *net.Interface, timeout int) []string {
 	d := dialog{stop: false}
 	ip := GetIPAdress(_interface)
 	log.Println("My ip is : " + ip)

@@ -89,7 +89,7 @@ func (r *Response) GetValueArgument(nameArgument string) (string, error) {
 			return variable.Value, nil
 		}
 	}
-	return "", errors.New("not found argument")
+	return "", errors.New("not found argument :" + nameArgument)
 }
 
 // GetError if response have an error upnp

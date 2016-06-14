@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/xml"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"upnp/scpd"
 )
@@ -75,7 +74,6 @@ func (a *Action) Send() (*Response, error) {
 	req.Header.Add("CONTENT-TYPE", "text/xml; charset=\"utf-8\"")
 	req.Header.Add("SOAPACTION", "\""+a.service.ServiceType+"#"+a.action.Name+"\"")
 	client := http.Client{}
-	log.Println("request : ", string(out))
 	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
