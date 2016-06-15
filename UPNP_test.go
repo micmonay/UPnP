@@ -1,4 +1,4 @@
-package upnp
+package UPnP
 
 import (
 	"bufio"
@@ -14,7 +14,7 @@ func getInput() string {
 	str, _ := reader.ReadString('\n')
 	return strings.TrimSpace(str)
 }
-func getInterface() (*net.Interface, error) {
+func selectInterface() (*net.Interface, error) {
 	addrs, _ := net.Interfaces()
 	for n, addr := range addrs {
 		ip, err := addr.Addrs()
@@ -31,14 +31,14 @@ func getInterface() (*net.Interface, error) {
 	return &addrs[interfaceNum], nil
 }
 
-//Exemple for get external ipv4 address from gateway
-func ExempleNewUPNP() {
+//ExampleNewUPNPmple for get external ipv4 address from gateway
+func ExampleNewUPNP() {
 	up := NewUPNP(SERVICE_GATEWAY_IPV4_V2)
-	_interface, err := getInterface()
+	_interface, err := selectInterface()
 	if err != nil {
 		panic(err)
 	}
-	devices := up.GetAllCompatibleDevice(*_interface, 1)
+	devices := up.GetAllCompatibleDevice(_interface, 1)
 	if len(devices) == 0 {
 		return
 	}
@@ -54,5 +54,5 @@ func ExempleNewUPNP() {
 	fmt.Println(response.ToString())
 	fmt.Print("Press enter")
 	getInput()
-
+	// Output: external ip
 }

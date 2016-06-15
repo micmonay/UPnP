@@ -1,11 +1,11 @@
-package upnp
+package UPnP
 
 import (
+	"UPnP/scpd"
 	"bytes"
 	"encoding/xml"
 	"io/ioutil"
 	"net/http"
-	"upnp/scpd"
 )
 
 // Action usued for generate and read action

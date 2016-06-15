@@ -1,4 +1,4 @@
-package upnp
+package UPnP
 
 import (
 	"encoding/xml"
@@ -17,21 +17,21 @@ type Icon struct {
 	URL      string   `xml:"url"`
 }
 
-// UpnpRoot root description file
-type UpnpRoot struct {
+// Root root description file
+type Root struct {
 	XMLName  xml.Name `xml:"root"`
 	Location *url.URL
 	Device   *Device `xml:"device"`
 }
 
 // NewXMLUPNPFile get description file
-func NewXMLUPNPFile(_url string) (*UpnpRoot, error) {
+func NewXMLUPNPFile(_url string) (*Root, error) {
 	rep, err := http.Get(_url)
 	if err != nil {
 		return nil, err
 	}
 	bytes, err := ioutil.ReadAll(rep.Body)
-	r := UpnpRoot{}
+	r := Root{}
 	err = xml.Unmarshal(bytes, &r)
 	if err != nil {
 		return nil, err
@@ -41,13 +41,13 @@ func NewXMLUPNPFile(_url string) (*UpnpRoot, error) {
 }
 
 // GetDevice return child device
-func (r *UpnpRoot) GetDevice() *Device {
+func (r *Root) GetDevice() *Device {
 	device := r.Device
 	device.upnpRoot = r
 	return device
 }
 
 // GetLocation return location url
-func (r *UpnpRoot) GetLocation() *url.URL {
+func (r *Root) GetLocation() *url.URL {
 	return r.Location
 }

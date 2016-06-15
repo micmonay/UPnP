@@ -1,15 +1,15 @@
-package upnp
+package UPnP
 
 import (
+	"UPnP/scpd"
 	"encoding/xml"
 	"errors"
 	"log"
-	"upnp/scpd"
 )
 
 // Service for manipulation service
 type Service struct {
-	unupRoot    *UpnpRoot
+	unupRoot    *Root
 	scpd        *scpd.SCPD
 	XMLName     xml.Name `xml:"service"`
 	ServiceType string   `xml:"serviceType"`

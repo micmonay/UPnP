@@ -1,4 +1,4 @@
-package upnp
+package UPnP
 
 import (
 	"bufio"

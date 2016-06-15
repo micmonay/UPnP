@@ -1,4 +1,4 @@
-package upnp
+package UPnP
 
 import (
 	"encoding/xml"
@@ -6,7 +6,7 @@ import (
 
 // Device data
 type Device struct {
-	upnpRoot *UpnpRoot
+	upnpRoot *Root
 	XMLName  xml.Name `xml:"device"`
 
 	FriendlyName     string     `xml:"friendlyName"`

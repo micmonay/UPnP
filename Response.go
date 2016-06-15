@@ -1,11 +1,11 @@
-package upnp
+package UPnP
 
 import (
+	"UPnP/scpd"
 	"encoding/base64"
 	"encoding/xml"
 	"errors"
 	"log"
-	"upnp/scpd"
 )
 
 // XMLRepActionHead Header
@@ -35,8 +35,8 @@ type XMLRepVariable struct {
 	Value string `xml:",innerxml"`
 }
 
-// UPnPError format upnp error
-type UPnPError struct {
+// Error format upnp error
+type Error struct {
 	XMLName          xml.Name `xml:"UPnPError"`
 	ErrorCode        string   `xml:"errorCode"`
 	ErrorDescription string   `xml:"errorDescription"`
@@ -93,9 +93,9 @@ func (r *Response) GetValueArgument(nameArgument string) (string, error) {
 }
 
 // GetError if response have an error upnp
-func (r *Response) GetError() *UPnPError {
+func (r *Response) GetError() *Error {
 	strXML, _ := r.GetValueArgument("detail")
-	errorUpnp := UPnPError{}
+	errorUpnp := Error{}
 	err := xml.Unmarshal([]byte(strXML), &errorUpnp)
 	if err != nil {
 		log.Println(err)
