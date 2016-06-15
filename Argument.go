@@ -1,6 +1,6 @@
 package UPnP
 
-import scpd "UPnP/SCPD"
+import scpd "SCPD"
 
 // Argument arguement
 type Argument struct {

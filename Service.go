@@ -1,7 +1,7 @@
 package UPnP
 
 import (
-	scpd "UPnP/SCPD"
+	scpd "SCPD"
 	"encoding/xml"
 	"errors"
 	"log"
