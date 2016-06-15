@@ -1,8 +1,8 @@
-package UPnP
-
 /*
 	Easy for dialog with a UPnP device in golang
 */
+package UPnP
+
 import (
 	"bufio"
 	"bytes"
