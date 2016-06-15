@@ -1,11 +1,12 @@
 package UPnP
 
 import (
-	scpd "UPnP/SCPD"
 	"bytes"
 	"encoding/xml"
 	"io/ioutil"
 	"net/http"
+
+	scpd "github.com/micmonay/UPnP/SCPD"
 )
 
 // Action usued for generate and read action

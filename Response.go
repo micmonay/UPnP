@@ -1,11 +1,12 @@
 package UPnP
 
 import (
-	scpd "UPnP/SCPD"
 	"encoding/base64"
 	"encoding/xml"
 	"errors"
 	"log"
+
+	scpd "github.com/micmonay/UPnP/SCPD"
 )
 
 // XMLRepActionHead Header

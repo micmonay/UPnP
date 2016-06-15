@@ -1,10 +1,11 @@
 package UPnP
 
 import (
-	scpd "UPnP/SCPD"
 	"encoding/xml"
 	"errors"
 	"log"
+
+	scpd "github.com/micmonay/UPnP/SCPD"
 )
 
 // Service for manipulation service
