@@ -110,7 +110,6 @@ func (u *UPNP) GetAllCompatibleDevice(_interface *net.Interface, timeout int) []
 func (u *UPNP) GetLinkDeviceOnly(_interface *net.Interface, timeout int) []string {
 	d := dialog{stop: false}
 	ip := GetIPAdress(_interface)
-	log.Println("My ip is : " + ip)
 	udpAddr, err := net.ResolveUDPAddr("udp4", "239.255.255.250:1900")
 	if err != nil {
 		log.Fatalln("1 : ResolveUDPAddr failed: ", err)
