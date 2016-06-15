@@ -1,7 +1,7 @@
 package UPnP
 
 import (
-	"UPnP/scpd"
+	scpd "UPnP/SCPD"
 	"bytes"
 	"encoding/xml"
 	"io/ioutil"
