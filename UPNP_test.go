@@ -31,7 +31,7 @@ func selectInterface() (*net.Interface, error) {
 	return &addrs[interfaceNum], nil
 }
 
-//ExampleNewUPNPmple for get external ipv4 address from gateway
+//ExampleNewUPNP example for get external ipv4 address from gateway
 func ExampleNewUPNP() {
 	up := NewUPNP(SERVICE_GATEWAY_IPV4_V2)
 	_interface, err := selectInterface()
